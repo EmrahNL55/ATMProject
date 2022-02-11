@@ -108,7 +108,7 @@ class Transaction(Customer):
         if money<balance:
             self.link_mongo().update_one({"idnumber":self.id_number},{'$set':{"balance":balance-money}}) 
             self.link_mongo().update_one({"idnumber":self.id_number},{'$push':{"transactions":f'-{money}  date:{self.date}'}})
-            return (f'{money} euro withdrew')                    
+            return (f'{money} euro withdraw')                    
         else:
             return("Balance is not enough") 
 
